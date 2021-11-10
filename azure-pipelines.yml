@@ -14,7 +14,7 @@ stages:
           versionType: 'AutoVersion'
           projectJsonPath: '$(Build.SourcesDirectory)\project.json'
           outputType: 'Process'
-          # orchestratorConnection: 'UiPath DEV'
-          outputPath: '$(Build.ArtifactStagingDirectory)'
+          orchestratorConnection: 'uipathcommite'
+          outputPath: '$(Build.ArtifactStagingDirectory)\Output'
       - publish: $(Build.ArtifactStagingDirectory)
         artifact: drop
