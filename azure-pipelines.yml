@@ -7,7 +7,7 @@ stages:
     displayName: Build Package
     jobs:
     - job: BuildPackage
-      pool: Win10Agents
+      pool: default
       steps:
       - task: UiPathPack@2
         inputs:
