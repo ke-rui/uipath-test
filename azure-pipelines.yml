@@ -3,12 +3,19 @@ trigger:
 variables:
   - group: DEV
 
-- task: UiPathPack@2
-  inputs:
-    versionType: 'AutoVersion'
-    projectJsonPath: '$(Build.SourceDirectory)\project.json'
-    outputType: 'Process'
-    orchestratorConnection: 'uipathcommite'
-    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
-
-  
+stages:
+  - stage: Build
+    displayName: Build Package
+    jobs:
+    - job: BuildPackage
+      pool: default
+      steps:
+      - task: UiPathPack@2
+        inputs:
+          versionType: 'AutoVersion'
+          projectJsonPath: '$(Build.SourcesDirectory)\project.json'
+          outputType: 'Process'
+          # orchestratorConnection: 'UiPath DEV'
+          outputPath: '$(Build.ArtifactStagingDirectory)'
+      - publish: $(Build.ArtifactStagingDirectory)
+        artifact: drop
