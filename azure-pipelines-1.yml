@@ -1,0 +1,20 @@
+trigger:
+  - master
+
+
+stages:
+  - stage: Build
+    displayName: Build Package
+    jobs:
+    - job: BuildPackage
+      pool: Default
+      steps:
+      - task: UiPathPack@2
+        inputs:
+          versionType: 'AutoVersion'
+          projectJsonPath: '$(Build.SourcesDirectory)\project.json'
+          outputType: 'Process'
+          orchestratorConnection: 'uipathcommite'
+          outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+      - publish: $(Build.ArtifactStagingDirectory)
+        artifact: drop
