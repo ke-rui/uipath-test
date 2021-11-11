@@ -8,9 +8,9 @@ stages:
     jobs:
     - job: BuildPackage
       strategy:
-      matrix:
-        citirx:
-        AGENT_NAME: 'citirx'
+        matrix:
+          citirx:
+            AGENT_NAME: 'citirx'
       pool: 
         name: 'Win10Agents'
         demands:
