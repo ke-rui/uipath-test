@@ -10,7 +10,7 @@ stages:
       pool: 
         name: 'Win10Agents'
         demands:
-        - agent.name -equals 'citrix'
+        - agent.name -equals 'citirx'
 
       steps:
       - task: UiPathPack@2
