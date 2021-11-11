@@ -7,7 +7,11 @@ stages:
     displayName: Build Package
     jobs:
     - job: BuildPackage
-      pool: Win10Agents
+      pool: 
+        name: 'Win10Agents'
+        demands:
+        - agent.name -equals 'citrix'
+
       steps:
       - task: UiPathPack@2
         inputs:
