@@ -7,7 +7,7 @@ stages:
     displayName: Build Package
     jobs:
     - job: BuildPackage
-      pool: Azure Pipelines
+      pool: Win10Agents
       steps:
       - task: UiPathPack@2
         inputs:
