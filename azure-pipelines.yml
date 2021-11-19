@@ -35,5 +35,5 @@ stages:
             - task: UiPathDeploy@2
               inputs:
                 orchestratorConnection: 'uipathcommite'
-                packagesPath: '$(Pipeline.Workspace)\drop\'
+                packagesPath: '$(Pipeline.Workspace)\drop\Output'
                 folderName: 'Shared'
