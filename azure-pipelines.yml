@@ -50,6 +50,6 @@ stages:
             inputs:
               testTarget: 'TestSet'
               orchestratorConnection: 'uipathcommite'
-              testSet: 'UiPathAzureDevOps_Tests'
+              testSet: 'testDevops_Tests'
               folderName: 'Shared'
               testReportDestination: '$(Pipeline.Workspace)\drop\'
