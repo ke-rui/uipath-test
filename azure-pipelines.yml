@@ -37,3 +37,19 @@ stages:
                 orchestratorConnection: 'uipathcommite'
                 packagesPath: '$(Pipeline.Workspace)\drop\Output'
                 folderName: 'Shared'
+
+  - stage: TestDEV
+    displayName:  Test After Publish
+    dependsOn: DeployDEV
+    condition: succeeded()
+    jobs:
+      - job: TestDEV
+        pool: Win10Agents
+        steps:
+          - task: UiPathTest@2
+            inputs:
+              testTarget: 'TestSet'
+              orchestratorConnection: 'uipathcommite'
+              testSet: 'UiPathAzureDevOps_Tests'
+              folderName: 'Shared'
+              testReportDestination: '$(Pipeline.Workspace)\drop\'
