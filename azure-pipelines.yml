@@ -51,5 +51,5 @@ stages:
               testTarget: 'TestSet'
               orchestratorConnection: 'uipathcommite'
               testSet: 'TestSet'
-              folderName: 'Shared'
+              folderName: 'Default'
               testReportDestination: '$(Pipeline.Workspace)\drop\'
